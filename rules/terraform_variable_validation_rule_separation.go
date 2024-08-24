@@ -64,7 +64,7 @@ func (r *TerraformVariableValidationRuleSeparationRule) Check(runner tflint.Runn
 		attrs := internal.SortAttributesByStartLine(variable.Body.Attributes)
 
 		if !checkVariableValidationRulesAreDividedByOneEmptyLine(variable, attrs) {
-			if err := runner.EmitIssueWithFix(
+			if err := runner.EmitIssue(
 				r,
 				"Variable validation rules must be divided by one empty line",
 				hcl.Range{
